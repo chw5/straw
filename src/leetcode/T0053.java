@@ -9,7 +9,7 @@ package leetcode;
 public class T0053 {
 
 
-    public int maxSubArray(int[] nums) {
+    public int maxSubArray1(int[] nums) {
 
         int sum=0 ,max=Integer.MIN_VALUE;
         for (int i = 0; i < nums.length; i++) {
@@ -20,6 +20,17 @@ public class T0053 {
             }
         }
         return max;
+    }
+
+    public int maxSubArray(int[] nums) {
+
+        int maxSum = Integer.MIN_VALUE;
+        int currMaxSum = nums[0];
+        for (int i = 0; i < nums.length; i++) {
+            currMaxSum = Math.max(currMaxSum+nums[i],nums[i]);
+            maxSum = Math.max(currMaxSum,maxSum);
+        }
+        return maxSum;
     }
 
 }
